@@ -1,20 +1,22 @@
 import { useState } from "react";
 import Search from "./components/Search";
-import AnimeList from "./components/AnimeList";
+import AnimeList from "./components/ResultList";
 import Nav from "./components/Nav";
 import "./App.css";
-import Filter from "./components/Filter";
+import FilterBar from "./components/FilterBar";
 
 function App() {
-  const [animes, setAnimes] = useState([]);
+  const [results, setResults] = useState([]);
   const [filter, setFilter] = useState("airing");
+  const [media, setMedia] = useState("anime");
 
   return (
     <div className="App">
       <Nav />
-      <Filter setFilter={setFilter} />
-      <Search setAnimes={setAnimes} filter={filter} />
-      <AnimeList animes={animes} />
+      <FilterBar setMedia={setMedia} setFilter={setFilter} />
+
+      <Search setResults={setResults} filter={filter} media={media} />
+      <AnimeList results={results} />
     </div>
   );
 }

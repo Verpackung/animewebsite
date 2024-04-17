@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Search({ setAnimes, filter }) {
+export default function Search({ setResults, filter, media }) {
   // Need to filter duplicates because api returns identical items
   // in results which mess with the list keys
   const filterDuplicates = (inputData) => {
@@ -19,18 +19,24 @@ export default function Search({ setAnimes, filter }) {
 
   useEffect(() => {
     async function fetchInfo() {
-      const tmp = await fetch(
-        "https://api.jikan.moe/v4/top/anime?type=tv&filter=" +
-          filter +
-          "&limit=25"
-      );
+      const mediaType =
+        media !== "anime" ? "manga?type=manga" : "anime?type=tv";
+      // airing for animes == publishing for manga
+      const queryFilter =
+        filter == "airing" && media == "manga" ? "publishing" : filter;
+      const fullQuery =
+        "https://api.jikan.moe/v4/top/" +
+        mediaType +
+        "&filter=" +
+        queryFilter +
+        "&limit=25";
+      const tmp = await fetch(fullQuery);
       const res = await tmp.json();
       const withoutDuplicates = filterDuplicates(res.data);
-      console.log(withoutDuplicates);
-      setAnimes(withoutDuplicates);
+      setResults(withoutDuplicates);
     }
     fetchInfo();
-  }, [filter]);
+  }, [filter, media]);
 
   return <div></div>;
 }

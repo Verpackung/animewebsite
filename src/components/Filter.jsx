@@ -4,7 +4,7 @@ import DropdownItem from "./dropdown/DropdownItem";
 import styles from "./filter.module.css";
 
 export default function Filter({ setFilter }) {
-  const items = ["Airing", "Completed", "Not Yet Aired"];
+  const filters = ["Airing", "Completed", "Not Yet Aired"];
   const filtersByKey = {
     Airing: "airing",
     Completed: "bypopularity",
@@ -16,6 +16,7 @@ export default function Filter({ setFilter }) {
     const clickedFilter = e.target.outerText;
     setButtonText(clickedFilter);
     setFilter(filtersByKey[clickedFilter]);
+    console.log("filter set to " + clickedFilter);
   };
 
   return (
@@ -24,9 +25,9 @@ export default function Filter({ setFilter }) {
         buttonText={buttonText}
         content={
           <>
-            {items.map((item) => (
-              <DropdownItem key={item} onClick={(e) => handleClick(e)}>
-                {item}
+            {filters.map((filter) => (
+              <DropdownItem key={filter} onClick={(e) => handleClick(e)}>
+                {filter}
               </DropdownItem>
             ))}
           </>

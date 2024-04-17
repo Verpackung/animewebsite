@@ -3,3 +3,7 @@ body {
   font-family: sans-serif;
   background-color: #998f8d88;
 }
+
+.filterBar {
+  display: inline-flex;
+}
