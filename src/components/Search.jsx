@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function Search({ setAnimes }) {
+export default function Search({ setAnimes, filter }) {
   useEffect(() => {
     async function fetchInfo() {
       const tmp = await fetch(
