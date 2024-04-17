@@ -17,6 +17,9 @@
   width: 160px;
   z-index: 5;
   font-size: 18px;
+  transform: translatey(-5%);
+  transition: transform 150ms ease-in-out, opacity 100ms ease-in-out;
+  pointer-events: none;
 }
 
 .dropdownContent::-webkit-scrollbar {
@@ -26,4 +29,6 @@
 
 .contentOpen {
   opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
 }
