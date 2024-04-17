@@ -1,7 +1,8 @@
 .dropdownButton {
   display: flex;
   align-items: center;
-  width: fit-content;
+  justify-content: center;
+  width: 140px;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 8px 24px rgb(0, 0, 0, 0.2);
