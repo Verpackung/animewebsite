@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function Search({ setAnimes, filter }) {
   // Need to filter duplicates because api returns identical items
-  // in result wich mess with the list keys
+  // in results which mess with the list keys
   const filterDuplicates = (inputData) => {
     const unique = [];
     const knownIds = [];
