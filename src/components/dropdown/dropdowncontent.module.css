@@ -5,7 +5,7 @@
   padding: 1rem;
   margin-top: 0.5rem;
   color: #0f1f38;
-  background-color: #2d5088ab;
+  background-color: #2d5088;
   border-radius: 0.5rem;
   box-shadow: 0 8px 24px rgb(0, 0, 0, 0.2);
   overflow-y: scroll;
@@ -13,6 +13,10 @@
   max-height: 40vh;
   opacity: 0;
   font-weight: 700;
+  position: absolute;
+  width: 160px;
+  z-index: 5;
+  font-size: 18px;
 }
 
 .dropdownContent::-webkit-scrollbar {
