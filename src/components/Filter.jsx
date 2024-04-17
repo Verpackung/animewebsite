@@ -5,11 +5,17 @@ import styles from "./filter.module.css";
 
 export default function Filter({ setFilter }) {
   const items = ["Airing", "Completed", "Not Yet Aired"];
+  const filtersByKey = {
+    Airing: "airing",
+    Completed: "bypopularity",
+    "Not Yet Aired": "upcoming",
+  };
   const [buttonText, setButtonText] = useState("Airing");
 
   const handleClick = (e) => {
     const clickedFilter = e.target.outerText;
     setButtonText(clickedFilter);
+    setFilter(filtersByKey[clickedFilter]);
   };
 
   return (

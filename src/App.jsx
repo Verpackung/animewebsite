@@ -7,7 +7,7 @@ import Filter from "./components/Filter";
 
 function App() {
   const [animes, setAnimes] = useState([]);
-  const [filter, setFilter] = useState({});
+  const [filter, setFilter] = useState("airing");
 
   return (
     <div className="App">
